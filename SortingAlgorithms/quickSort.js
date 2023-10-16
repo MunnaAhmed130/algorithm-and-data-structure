@@ -22,4 +22,4 @@ const arr = [8, 20, -2, 4, -6];
 console.log(quickSort(arr));
 
 // Worst case = O(n^2)
-// Worst case = O(nlogn)
+// Average case = O(nlogn)
