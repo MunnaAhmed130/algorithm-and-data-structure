@@ -37,7 +37,7 @@ function merge(leftArr, rightArr) {
 }
 
 const arr = [8, 20, -2, 4, -6];
-// mergeSort(arr);
+// const arr = [-6, 20, 8, -2, 4];
 
 console.log("merge sort", mergeSort(arr));
 // console.log("hello");
