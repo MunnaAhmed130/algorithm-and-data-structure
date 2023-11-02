@@ -4,7 +4,7 @@ const distributeCandies = (ratings) => {
     // this returns a array of sub arrays containing element and index
     const data = ratings.map((e, i) => [e, i]);
 
-    // sorted data array helps find the smallest values to compare
+    // sorted data array helps to compare - starting from the lowest rating kids
     data.sort((a, b) => a[0] - b[0]);
 
     // candies = Array.from({ length: arrlength }, () => 1);
