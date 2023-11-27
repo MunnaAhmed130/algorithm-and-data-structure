@@ -2,8 +2,10 @@ let numbers = [1, 4, 1, 2, 7, 5, 2, 25];
 let count = [];
 let output = [];
 let i = 0;
+
 let max = Math.max(...numbers);
 console.log("max", max);
+
 // initialize counter
 for (i = 0; i <= max; i++) {
     count[i] = 0; //
