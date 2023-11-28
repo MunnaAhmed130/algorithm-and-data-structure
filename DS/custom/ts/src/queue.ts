@@ -38,3 +38,5 @@ console.log(
 );
 
 queue.print();
+
+export {};
