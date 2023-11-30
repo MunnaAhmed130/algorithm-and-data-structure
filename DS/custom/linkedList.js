@@ -34,26 +34,6 @@ class LinkedList {
         ++this.size;
     }
 
-    insert(value, index) {
-        if (value < 0 || index > this.size) {
-            return;
-        }
-        if (index === 0) {
-            this.prepend(value);
-        } else {
-            const node = new Node(value);
-            let prev = this.head;
-            // console.log(prev);
-            for (let i = 0; i < index - 1; ++i) {
-                prev = prev.next;
-            }
-            node.next = prev.next;
-            console.log(prev.next);
-            prev.next = node;
-            // console.log(prev);
-        }
-    }
-
     // O(1)
     prepend(value) {
         const node = new Node(value);
@@ -69,6 +49,77 @@ class LinkedList {
         this.head = node;
 
         ++this.size;
+    }
+
+    insert(value, index) {
+        if (index < 0 || index > this.size) {
+            return;
+        }
+        if (index === 0) {
+            this.prepend(value);
+        } else {
+            const node = new Node(value);
+            let prev = this.head;
+            // console.log(prev);
+            for (let i = 0; i < index - 1; ++i) {
+                prev = prev.next;
+            }
+            node.next = prev.next;
+            console.log(prev.next);
+            prev.next = node;
+            ++this.size;
+            // console.log(prev);
+        }
+    }
+
+    removeFrom(index) {
+        if (index < 0 || index >= this.size) {
+            return null;
+        }
+        let removedNode;
+        if (index === 0) {
+            removedNode = this.head;
+            this.head = removedNode.next;
+            // this.head = null
+        } else {
+            let prev = this.head;
+            for (let i = 0; i < index - 1; ++i) {
+                prev = prev.next;
+            }
+            removedNode = prev.next;
+            prev.next = removedNode.next;
+            // console.log(prev.next);
+        }
+        --this.size;
+        return removedNode;
+    }
+
+    removeValue(value) {
+        if (this.isEmpty()) {
+            return null;
+        }
+        // removing head.value is always O(1)
+        // removing a random node is always O(n)
+        if (value === this.head.value) {
+            this.head = this.head.next;
+            --this.size;
+            return value;
+        } else {
+            let prev = this.head;
+            // loop returns a node previous to the value or null
+            while (prev.next && prev.next.value !== value) {
+                prev = prev.next;
+            }
+            // check node doesn't point to null
+            if (prev.next) {
+                const removedNode = prev.next;
+                prev.next = removedNode.next;
+                console.log(prev);
+                --this.size;
+                return value;
+            }
+        }
+        return null;
     }
 
     print() {
@@ -93,6 +144,10 @@ linkedList.append(10);
 linkedList.append(20);
 linkedList.insert(30, 1);
 linkedList.insert(40, 2);
+linkedList.append(50);
+linkedList.removeValue(50);
+console.log(linkedList.removeValue(400));
+// console.log(linkedList.removeFrom(10));
 // linkedList.prepend(0);
 // linkedList.append(30);
 // linkedList.prepend(20);

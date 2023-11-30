@@ -11,7 +11,7 @@ class Queue {
         console.log(this.rear);
         // return this.rear
     }
-    dequeue() {
+    deque() {
         const item = this.items[this.front];
         delete this.items[this.front];
         this.front++;
@@ -41,9 +41,9 @@ queue.enqueue(20);
 queue.print();
 queue.enqueue(30);
 // console.log(queue.items["0"])
-queue.dequeue();
-queue.dequeue();
-queue.dequeue();
+queue.deque();
+queue.deque();
+queue.deque();
 queue.print();
 
 console.log(

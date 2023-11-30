@@ -27,7 +27,7 @@ class CircularQueue {
         }
     }
 
-    dequeue() {
+    deque() {
         if (this.isEmpty()) {
             return null;
         }
@@ -72,13 +72,13 @@ queue.enqueue(30);
 queue.enqueue(40);
 queue.enqueue(50);
 queue.enqueue(60);
-queue.dequeue();
+queue.deque();
 console.log(queue.isEmpty());
 console.log(queue.peek());
-queue.dequeue();
+queue.deque();
 console.log(queue.peek());
 queue.enqueue(70);
-queue.dequeue();
+queue.deque();
 
 console.log(queue.items);
 

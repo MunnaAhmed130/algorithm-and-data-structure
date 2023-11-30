@@ -6,7 +6,7 @@ class Queue {
         this.items.push(element);
     }
     //shift() has a linear time complexity
-    dequeue() {
+    deque() {
         return this.items.shift();
     }
 
@@ -33,7 +33,7 @@ const queue = new Queue();
 queue.enqueue(10);
 queue.enqueue(20);
 queue.enqueue(30);
-queue.dequeue();
+queue.deque();
 console.log(queue);
 
 console.log(
