@@ -65,7 +65,7 @@ class LinkedList {
                 prev = prev.next;
             }
             node.next = prev.next;
-            console.log(prev.next);
+            // console.log(prev.next);
             prev.next = node;
             ++this.size;
             // console.log(prev);
@@ -79,7 +79,7 @@ class LinkedList {
         let removedNode;
         if (index === 0) {
             removedNode = this.head;
-            this.head = removedNode.next;
+            this.head = this.head.next;
             // this.head = null
         } else {
             let prev = this.head;
@@ -91,7 +91,7 @@ class LinkedList {
             // console.log(prev.next);
         }
         --this.size;
-        return removedNode;
+        return removedNode.value;
     }
 
     removeValue(value) {
@@ -122,6 +122,34 @@ class LinkedList {
         return null;
     }
 
+    search(value) {
+        if (this.isEmpty()) {
+            return -1;
+        }
+        let i = 0;
+        let curr = this.head;
+        while (curr) {
+            if (curr.value === value) {
+                return i;
+            }
+            curr = curr.next;
+            ++i;
+        }
+        return -1;
+    }
+
+    reverse() {
+        let prev = null;
+        let curr = this.head;
+        while (curr) {
+            let next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        this.head = prev;
+    }
+
     print() {
         if (this.isEmpty()) {
             console.log("list is empty");
@@ -145,12 +173,15 @@ linkedList.append(20);
 linkedList.insert(30, 1);
 linkedList.insert(40, 2);
 linkedList.append(50);
-linkedList.removeValue(50);
+// linkedList.removeValue(50);
 console.log(linkedList.removeValue(400));
 // console.log(linkedList.removeFrom(10));
 // linkedList.prepend(0);
 // linkedList.append(30);
 // linkedList.prepend(20);
 // linkedList.prepend(30);
-console.log(linkedList, linkedList.isEmpty(), linkedList.isSize());
+// console.log(linkedList, linkedList.isEmpty(), linkedList.isSize());
+linkedList.print();
+// console.log(linkedList.search(60));
+linkedList.reverse();
 linkedList.print();
