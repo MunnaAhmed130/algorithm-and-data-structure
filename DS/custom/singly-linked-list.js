@@ -185,3 +185,4 @@ linkedList.print();
 // console.log(linkedList.search(60));
 linkedList.reverse();
 linkedList.print();
+console.log(linkedList);

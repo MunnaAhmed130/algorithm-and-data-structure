@@ -7,8 +7,7 @@ class Node {
 
 class LinkedList {
     constructor() {
-        this.head = null;
-        this.tail = null;
+        this.head = this.tail = null;
         this.size = 0;
     }
 
@@ -33,16 +32,18 @@ class LinkedList {
             console.log(listValues);
         }
     }
+    // O(1)
     prepend(value) {
         const node = new Node(value);
         if (this.isEmpty()) {
             this.head = this.tail = node;
         } else {
             node.next = this.head;
-            this.head = node.next;
+            this.head = node;
         }
         ++this.size;
     }
+    // O(1)
     append(value) {
         const node = new Node(value);
         if (this.isEmpty()) {
@@ -53,15 +54,22 @@ class LinkedList {
         }
         ++this.size;
     }
+    // O(1)
     removeFromFront() {
         if (this.isEmpty()) {
             return null;
         }
         const value = this.head.value;
-        this.head = this.head.next;
+        if (this.size === 1) {
+            this.head = this.tail = null;
+        } else {
+            this.head = this.head.next;
+        }
+
         --this.size;
         return value;
     }
+    // O(n)
     removeFromEnd() {
         if (this.isEmpty()) {
             return null;
@@ -81,17 +89,45 @@ class LinkedList {
         --this.size;
         return value;
     }
+    // O(n)
+    reverse() {
+        if (this.isEmpty()) {
+            return null;
+        }
+        let prev = null;
+        let curr = this.head;
+        this.tail = this.head;
+        while (curr) {
+            let next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        this.head = prev;
+    }
 }
 
-const list = new LinkedList();
+module.exports = LinkedList;
+
+// const list = new LinkedList();
 // console.log("list size", list.getSize());
 // list.print();
 
-list.append(1);
-list.append(2);
-list.append(3);
-list.prepend(10);
-list.print();
-console.log("List is empty? ", list.isEmpty());
-console.log("List size", list.getSize());
+// list.append(1);
+// list.append(2);
+// list.append(3);
+// list.prepend(0);
+// list.print();
+// console.log("List is empty? ", list.isEmpty());
+// console.log("List size", list.getSize());
+// console.log(list);
+// list.reverse();
+// console.log(list);
+
+// console.log(list.removeFromFront());
+// console.log(list);
+
+// list.print();
+// list.removeFromEnd();
+// list.print();
 // console.log(list);
