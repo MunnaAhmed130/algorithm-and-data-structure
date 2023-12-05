@@ -1,5 +1,6 @@
 const LinkedList = require("./linked-list-tail");
 
+// stack data structure follows LIFO principle
 class LinkedListStack {
     constructor() {
         this.list = new LinkedList();
