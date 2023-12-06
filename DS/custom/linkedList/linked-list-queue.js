@@ -9,7 +9,7 @@ class LinkedListQueue {
         return this.list.isEmpty();
     }
     peek() {
-        return this.list.head.value;
+        return this.list.head?.value;
     }
     enqueue(value) {
         this.list.append(value);
@@ -26,11 +26,11 @@ class LinkedListQueue {
 }
 
 const queue = new LinkedListQueue();
-queue.enqueue(10);
-queue.enqueue(20);
-queue.enqueue(30);
+// queue.enqueue(10);
+// queue.enqueue(20);
+// queue.enqueue(30);
 queue.print();
-console.log("removed", queue.deque());
+// console.log("removed", queue.deque());
 console.log("the first number is", queue.peek());
 console.log("size of the queue is", queue.getsize());
 queue.print();

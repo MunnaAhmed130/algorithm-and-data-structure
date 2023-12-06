@@ -22,11 +22,12 @@ class Queue {
 }
 
 const queue = new Queue();
+console.log(queue.peek());
 queue.enqueue(10);
-queue.enqueue(20);
-queue.enqueue(30);
-queue.dequeue();
-console.log(queue);
+// queue.enqueue(20);
+// queue.enqueue(30);
+// queue.dequeue();
+// console.log(queue);
 
 console.log(
     "is empty -",

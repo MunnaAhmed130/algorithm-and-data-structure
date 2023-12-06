@@ -23,11 +23,20 @@ class Queue {
         console.log(this.items);
     }
 }
+
 const queue = new Queue();
+console.log(queue.peek());
 queue.enqueue(10);
-queue.enqueue(20);
-queue.enqueue(30);
-queue.dequeue();
-console.log(queue);
-console.log("is empty -", queue.isEmpty(), "first item -", queue.peek(), "queue size -", queue.size());
+// queue.enqueue(20);
+// queue.enqueue(30);
+// queue.dequeue();
+// console.log(queue);
+console.log(
+    "is empty -",
+    queue.isEmpty(),
+    "first item -",
+    queue.peek(),
+    "queue size -",
+    queue.size()
+);
 queue.print();
